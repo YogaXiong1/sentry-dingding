@@ -4,8 +4,8 @@
 
 ## 安装
 
-```bash
-$ pip install sentry-dingding
+```
+Dockfile里添加RUN pip install git+https://github.com/anshengme/sentry-dingding.git
 ```
 
 ## 使用
