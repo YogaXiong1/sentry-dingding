@@ -49,15 +49,15 @@ class DingDingPlugin(NotificationPlugin):
 
         access_token = self.get_option('access_token', group.project)
         send_url = DingTalk_API.format(token=access_token)
-        title = "新的报警 {}".format(event.project.slug)
+        title = "New alert {}".format(event.project.slug)
         
-        # print(group.get_absolute_url())
-        # print(event.id)
+        print(group.get_absolute_url())
+        print(event.id)
         data = {
             "msgtype": "markdown",
             "markdown": {
                 "title": title,
-                "text": u"#### {title} \n > {message} [链接]({url})".format(
+                "text": u"#### {title} \n > {message} [href]({url})".format(
                     title=title,
                     message=event.message,
                     url=u"{}events/{}/".format(group.get_absolute_url(), event.id),
