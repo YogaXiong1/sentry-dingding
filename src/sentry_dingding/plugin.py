@@ -51,8 +51,8 @@ class DingDingPlugin(NotificationPlugin):
         send_url = DingTalk_API.format(token=access_token)
         title = "新的报警 {}".format(event.project.slug)
         
-        print(group.get_absolute_url())
-        print(event.id)
+        # print(group.get_absolute_url())
+        # print(event.id)
         data = {
             "msgtype": "markdown",
             "markdown": {
