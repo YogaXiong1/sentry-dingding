@@ -5,7 +5,7 @@
 ## 安装
 
 ```
-Dockfile里添加RUN pip install git+https://github.com/anshengme/sentry-dingding.git
+Dockfile里添加RUN pip install git+https://github.com/YogaXiong1/sentry-dingding.git
 ```
 
 ## 使用

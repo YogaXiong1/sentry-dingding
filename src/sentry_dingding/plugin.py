@@ -15,14 +15,14 @@ class DingDingPlugin(NotificationPlugin):
     """
     Sentry plugin to send error counts to DingDing.
     """
-    author = 'ansheng'
-    author_url = 'https://github.com/anshengme/sentry-dingding'
+    author = 'yogaxiong'
+    author_url = 'https://github.com/YogaXiong1/sentry-dingding'
     version = sentry_dingding.VERSION
     description = 'Send error counts to DingDing.'
     resource_links = [
-        ('Source', 'https://github.com/anshengme/sentry-dingding'),
-        ('Bug Tracker', 'https://github.com/anshengme/sentry-dingding/issues'),
-        ('README', 'https://github.com/anshengme/sentry-dingding/blob/master/README.md'),
+        ('Source', 'https://github.com/YogaXiong1/sentry-dingding'),
+        ('Bug Tracker', 'https://github.com/YogaXiong1/sentry-dingding/issues'),
+        ('README', 'https://github.com/YogaXiong1/sentry-dingding/blob/master/README.md'),
     ]
 
     slug = 'DingDing'
@@ -49,13 +49,15 @@ class DingDingPlugin(NotificationPlugin):
 
         access_token = self.get_option('access_token', group.project)
         send_url = DingTalk_API.format(token=access_token)
-        title = "New alert from {}".format(event.project.slug)
-
+        title = "新的报警 {}".format(event.project.slug)
+        
+        print(group.get_absolute_url())
+        print(event.id)
         data = {
             "msgtype": "markdown",
             "markdown": {
                 "title": title,
-                "text": u"#### {title} \n > {message} [href]({url})".format(
+                "text": u"#### {title} \n > {message} [链接]({url})".format(
                     title=title,
                     message=event.message,
                     url=u"{}events/{}/".format(group.get_absolute_url(), event.id),
